@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from .schemas import TodoCreate,TodoResponse
-from .models import Todo
+from app.schemas import TodoCreate,TodoResponse
+from app.models import Todo
 from fastapi import Depends,HTTPException,APIRouter
-from database import SessionLocal
+from app.database import SessionLocal
 router=APIRouter()
 '''
 ROUTING

@@ -16,3 +16,4 @@ class User(Base):
     description=Column(String,nullable=True)
     completed=Column(Boolean,default=False)
     due_date=Column(Date,nullable=True)
+    priority=Column(Integer, default=1)

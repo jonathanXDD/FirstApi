@@ -9,8 +9,8 @@ from .auth import router as auth_router
 app = FastAPI()
 
 #initialze Database`s table
-Base.metadata.create_all(bind=engine)
+#Base.metadata.create_all(bind=engine)
 
 #register Router
 app.include_router(router=router,prefix="/api",tags=["todos"])
-app.include_router(auth_router)
+#app.include_router(router=auth_router,prefix="/user",tags=["auth"])

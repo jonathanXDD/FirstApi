@@ -1,8 +1,10 @@
 from sqlalchemy.orm import Session
-from app.schemas import TodoCreate,TodoResponse
-from app.models import Todo
+from .schemas import TodoCreate,TodoResponse
+from .models import Todo
 from fastapi import Depends,HTTPException,APIRouter
-from app.database import SessionLocal
+from .database import SessionLocal
+from .auth import get_current_user
+
 router=APIRouter()
 '''
 ROUTING

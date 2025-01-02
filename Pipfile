@@ -8,6 +8,8 @@ fastapi = "*"
 sqlalchemy = "*"
 pydantic = "*"
 alembic = "*"
+jose = "*"
+python-jose = "*"
 
 [dev-packages]
 

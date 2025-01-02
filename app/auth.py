@@ -1,7 +1,8 @@
-from jose import JWTError,jwt
+from jose import JWTError, jwt
 from datetime import datetime,timedelta
 from fastapi import APIRouter,HTTPException,status
-from models import User
+from .schemas import UserBase
+
 SECRET_KEY="your_secret_key"
 ALGORITHM="HS356"
 ACCESS_TOKEN_EXPIRE_MINUTES=30
@@ -22,12 +23,12 @@ def verify_token(token:str):
 router=APIRouter()
 
 @router.post("token")
-async def login_for_access_token(user:User):
+async def login_for_access_token(user:UserBase):
     access_token =create_access_token(data={"sub":user.username})
     return{"access_token":access_token,"token_type":"bearer"}
 
-def get_crrent_user(token:str):
+def get_current_user(token:str):
     user=verify_token(token)
     if user is None:
-        raise HTTPException(status_code=status HTTP_401_UNAUTHORIZED,detail="invalid t")
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,detail="invalid t")
     return user
